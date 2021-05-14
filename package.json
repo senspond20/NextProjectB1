@@ -8,7 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/react-cookies": "^0.1.0",
+    "@zeit/next-css": "^1.0.1",
     "next": "10.2.0",
+    "next-cookies": "^2.0.3",
     "react": "17.0.2",
     "react-cookie": "^4.0.3",
     "react-dom": "17.0.2",

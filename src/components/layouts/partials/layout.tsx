@@ -1,17 +1,11 @@
 
 import React, { ReactNode, useEffect, useState, useCallback, useRef  } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Cookies, CookiesProvider, useCookies, withCookies } from 'react-cookie';
-// import cookie from 'react-cookies'
+import { useCookies, withCookies } from 'react-cookie';
 import SEO from './seo';
 import GlobalStyle from '@components/layouts/styles/global';
 import { darkTheme, lightTheme , ThemeType} from '@components/layouts/styles';
-// import { NextPageContext } from 'next';
-// import cookies from 'next-cookies';
 
-
-import cookieCutter from 'cookie-cutter'
-import { NextPageContext } from 'next';
 /**
  * 스타일링 코드
  */
@@ -34,16 +28,20 @@ function Layouts ({title, children} : Props){
      * 테마 상태값
      */
     const [cookies,setCookie, removeCookie] = useCookies(['theme']);
-    const initTheme = cookies.theme || ThemeType.default 
+    // 초기 테마값은 쿠키에 값이 있는지 체크하고 없으면 디폴트 테마로 (OR연산 단축평가)
+    const initTheme = cookies.theme || ThemeType.default  
     const [theme, setTheme] = useState(initTheme);
 
+    /**
+     * theme 상태가 변경되면 쿠키도 변경
+     */
     useEffect(() => {
         console.log(cookies.theme)
         setCookie('theme', theme)
      }, [theme]);
 
     /**
-     * 테마를 변경한다.
+     * theme 상태를 변경한다.
      */
     const ToggleTheme = useCallback(
         () =>{
@@ -52,11 +50,12 @@ function Layouts ({title, children} : Props){
             :    setTheme(ThemeType.dark)
     }, [theme] )
 
-    // const themeStyle = theme === ThemeType.dark ? darkTheme : lightTheme
+    // theme 상태값에 따른 테마 스타일을 get
+    const themeStyle = theme === ThemeType.dark ? darkTheme : lightTheme
 
     return(
         // <CookiesProvider cookies ={cookies.theme}>
-        <ThemeProvider theme={theme === ThemeType.dark ? darkTheme : lightTheme}>
+        <ThemeProvider theme={themeStyle}>
             <GlobalStyle/>
             <Container>
                 <SEO title = {title || ''}/>

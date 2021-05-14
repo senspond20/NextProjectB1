@@ -6,6 +6,9 @@ export const lightTheme : DefaultTheme ={
         fgColor: '#333',
         bgColor: '#fefefe',
     },
+    navigator : {
+        a_color : 'blue' 
+    },
     header : {},
     main : {},
     footer : {},

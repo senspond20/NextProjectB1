@@ -7,6 +7,9 @@ declare module 'styled-components' {
             fgColor: string;
             bgColor: string;
         },
+        navigator : {
+            a : string;
+        },
         header : {},
         main : {},
         footer : {},

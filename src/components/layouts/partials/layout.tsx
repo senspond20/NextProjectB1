@@ -5,12 +5,27 @@ import { useCookies, withCookies } from 'react-cookie';
 import SEO from './seo';
 import GlobalStyle from '@components/layouts/styles/global';
 import { darkTheme, lightTheme , ThemeType} from '@components/layouts/styles';
+import Link from 'next/link';
 
 /**
  * 스타일링 코드
  */
 const Container = styled.div`
 
+.navigator{
+        display:flex; 
+        padding-bottom:10px;
+        margin-bottom:10px;
+        border-bottom: 1px solid ${({theme}) => theme.navigator.a_color};;
+        div{
+            margin: 0 15px;
+            a{
+                color : ${({theme}) => theme.navigator.a_color};
+                cursor: pointer;
+            }
+        }
+        
+    }
 `;
 
 type Props = {
@@ -61,9 +76,14 @@ function Layouts ({title, children} : Props){
                 <SEO title = {title || ''}/>
                 <header>
                     <h1>header</h1>
+                    <div className={"navigator"}>
+                        <div><Link href='/'><a>Home</a></Link></div>
+                        <div><Link href='/test'><a>Test</a></Link></div>
+                        <div><button onClick={ToggleTheme}>테마스위치</button></div>
+                    </div>
                     {/* <input type='text' ref={theme} /> */}
-                    <div>현재 테마 : {theme}</div>
-                    <button onClick={ToggleTheme}>테마스위치</button>
+                    <div >현재 테마 : <span style={{color:'red'}}>{theme}</span></div>
+                   
                 </header>
                 <section>
                     <main>

@@ -7,11 +7,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
       <Layouts>
-          
           안녕하세요
-          <div>
-             <Link href='/test'><a>클릭</a></Link>
-          </div>
       </Layouts>
   )
 }

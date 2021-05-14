@@ -5,6 +5,9 @@ export const darkTheme : DefaultTheme ={
         fgColor: '#fefefe',
         bgColor: '#333',
     },
+    navigator : {
+        a_color : 'yellow', 
+    },
     header : {},
     main : {},
     footer : {},

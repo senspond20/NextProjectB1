@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
-      "baseUrl": "./",
+      "baseUrl": "src",
       "paths":{
-        "@public/*" : ["public/*"],
-        "@components/*" : ["src/components/*"]
+        "@public/*" : ["../public/*"],
+        "@components/*" : ["components/*"],
+        "@models/*" : ["models/*"]
       },
       "target": "es5",
       "lib": [
@@ -28,6 +29,6 @@
     ],
     "include": [
       "**/*.ts",
-      "**/*.tsx", "pages/api/hello.js", "pages/index.js"]
+      "**/*.tsx", "src/pages/api/hello.js", "src/pages/index.js"]
   }
   

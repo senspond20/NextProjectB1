@@ -6,7 +6,7 @@ export const darkTheme : DefaultTheme ={
         bgColor: '#333',
     },
     navigator : {
-        a_color : 'yellow', 
+        a : 'yellow', 
     },
     header : {},
     main : {},

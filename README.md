@@ -107,20 +107,6 @@ import Link from 'next/link';
  */
 const Container = styled.div`
 
-.navigator{
-        display:flex; 
-        padding-bottom:10px;
-        margin-bottom:10px;
-        border-bottom: 1px solid ${({theme}) => theme.navigator.a_color};;
-        div{
-            margin: 0 15px;
-            a{
-                color : ${({theme}) => theme.navigator.a_color};
-                cursor: pointer;
-            }
-        }
-        
-    }
 `;
 
 type Props = {

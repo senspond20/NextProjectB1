@@ -7,7 +7,7 @@ export const lightTheme : DefaultTheme ={
         bgColor: '#fefefe',
     },
     navigator : {
-        a_color : 'blue' 
+        a : 'blue' 
     },
     header : {},
     main : {},

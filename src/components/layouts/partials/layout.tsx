@@ -11,21 +11,21 @@ import Link from 'next/link';
  * 스타일링 코드
  */
 const Container = styled.div`
-
-.navigator{
+  .navigator{
         display:flex; 
         padding-bottom:10px;
         margin-bottom:10px;
-        border-bottom: 1px solid ${({theme}) => theme.navigator.a_color};;
+        border-bottom: 1px solid ${({theme}) => theme.navigator.a};;
         div{
             margin: 0 15px;
             a{
-                color : ${({theme}) => theme.navigator.a_color};
+                color : ${({theme}) => theme.navigator.a};
                 cursor: pointer;
             }
         }
         
     }
+
 `;
 
 type Props = {

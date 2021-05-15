@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-      <Layouts>
+      <Layouts title={'Home'}>
           안녕하세요
       </Layouts>
   )

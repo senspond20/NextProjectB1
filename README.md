@@ -1,9 +1,13 @@
 # NextProjectB1
 
-테마 변경-
+1. 테마 변경-
 
-테마 상태값을 쿠키에 저장해 새로고침해도 반영되게 한다
+- 테마 상태값을 쿠키에 저장해 새로고침해도 반영되게 한다
 
+2. MarkDown 으로 작성한 글을 html으로 정적 사이트 생성한다.
+   
+
+## 테마
 
 ```js
 import 'styled-components';
@@ -184,3 +188,41 @@ function Layouts ({title, children} : Props){
 export default withCookies(Layouts);
 ```
 
+## 마크다운
+
+```
+npm install --save raw-loader
+npm install --save react-markdown
+```
+
++ next.config.js
+
+```js
+webpack: (config, options) => {
+// Fixes npm packages that depend on `fs` module
+    config.module.rules.push(
+        {
+            test : /\.md$/,
+            use : "raw-loader"
+        }
+    )
+    return config;
+},
+```
+
++ pages/mark.tsx
+
+```js
+import Layout from "@components/layouts";
+import React from "react"; 
+import ReactMarkdown from "react-markdown"; 
+// import content from "../../ssg_content/test.md"; 
+import content from "@contents/test.md"; 
+const Mark = () => { 
+    return ( 
+    <Layout> 
+        <ReactMarkdown children={content}/> 
+    </Layout> ) 
+};
+export default Mark;
+```

@@ -2,9 +2,9 @@
 require('dotenv').config();
 // const withCSS = require('@zeit/next-css')
 module.exports = ({
-    // typescript: {
-    //     ignoreDevErrors: true,
-    // },
+    typescript: {
+        ignoreDevErrors: true,
+    },
     use: {
         loader: "url-loader"
     },
@@ -14,9 +14,18 @@ module.exports = ({
         config.node = {
             fs: "empty",
         };
+        config.module.rules.push(
+            {
+              test: /\.md$/,
+              use: 'raw-loader',
+            },
+        )
         return config;
+
     },
     env: {
         VERSION : process.env.REACT_APP_SERVICE_VERSION,
     },
 });
+
+

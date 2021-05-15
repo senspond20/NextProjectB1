@@ -27,14 +27,20 @@ function PostTemplate({slug, meta, content} : Props) {
     )
 }
 
+/**
+ * 추후 외부 config파일로 뺌
+ */
+const SSG_MARKDOWN_CONTENT_PATH_LIST = [
+    'hello', 
+    'test'
+];
 
 export const getStaticPaths : GetStaticPaths = async() => {
-    let paths= []
-    try{
-        paths.push({ params : {slug : 'hello'}});
-        paths.push({ params : {slug : 'test'}});
-    }catch(e){
-    }
+    let paths: { params: { slug: string; }; }[] = []
+
+    SSG_MARKDOWN_CONTENT_PATH_LIST?.forEach(path =>{
+        paths.push({ params : {slug : path}});
+    })
     return {
         paths,
         fallback: false
@@ -47,11 +53,10 @@ export const getStaticProps : GetStaticProps= async ({ params }) => {
     try{
         const path = join(process.cwd(), 'ssg_content',`${slug}.md`)
         const fs = require('fs')
-        fs.existsSync(path)
-        contents = await fs.readFileSync(path, 'utf8')
-    }catch(e){
-        contents = '존재하지않음';
-    }
+        if(fs.existsSync(path)) // 해당경로의 ${slug}.md 파일이 실제 존재하면 ?
+            contents = await fs.readFileSync(path, 'utf8') // 가져오세요
+    }catch(e){ }
+
     const { data, content } = matter(contents)
     console.log(data)
     return { 

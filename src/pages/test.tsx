@@ -7,7 +7,7 @@ import Layouts from '@components/layouts';
 
 export default function Home() {
   return (
-      <Layouts>
+      <Layouts title={'test'}>
           안녕하세요2
       </Layouts>
   )

@@ -1,4 +1,5 @@
 {
   "title": "Nextjs Blog Site",
-  "description": "A Simple Markdown Blog build with Nextjs."
+  "description": "A Simple Markdown Blog build with Nextjs.",
+  "ssg_content" : ["hello, list"]
 }

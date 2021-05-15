@@ -3,6 +3,7 @@ import {GetStaticPaths, GetStaticProps, NextPageContext} from "next";
 import matter from 'gray-matter'
 import ReactMarkdown from "react-markdown";
 import { join } from 'path'
+import Layout from '@components/layouts';
 
 type Props = {
     slug?: string
@@ -13,8 +14,8 @@ type Props = {
 function PostTemplate({slug, meta, content} : Props) {
      const metaHeader = Object.entries(meta);
     return (
-        <div>
-            {/* <h1>page : {slug}</h1> */}
+        <Layout>
+            <h1>page : {slug}</h1>
             {metaHeader?.map((item, idx)=>(
                 <div key= {idx}>
                     <span>{item[0]}</span> : 
@@ -23,7 +24,7 @@ function PostTemplate({slug, meta, content} : Props) {
             ))}
             <hr />
             <ReactMarkdown children={content}/>
-        </div>
+        </Layout>
     )
 }
 
@@ -38,9 +39,25 @@ const SSG_MARKDOWN_CONTENT_PATH_LIST = [
 export const getStaticPaths : GetStaticPaths = async() => {
     let paths: { params: { slug: string; }; }[] = []
 
-    SSG_MARKDOWN_CONTENT_PATH_LIST?.forEach(path =>{
-        paths.push({ params : {slug : path}});
+    const path = join(process.cwd(), 'ssg_content');
+    console.log(path)
+    const fs = require('fs');
+    const list = await fs.readdirSync(path);
+
+    list?.forEach((path: { toString: () => string; }) =>{
+        
+    
+        if(path.toString().match('.md')){
+            const p = path.toString().replace('\.md','');
+            paths.push({ params : {slug : p}});
+        }
+
+   
     })
+
+    // SSG_MARKDOWN_CONTENT_PATH_LIST?.forEach(path =>{
+    //     paths.push({ params : {slug : path}});
+    // })
     return {
         paths,
         fallback: false

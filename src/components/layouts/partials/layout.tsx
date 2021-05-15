@@ -66,6 +66,7 @@ function Layouts ({title, children} : Props){
                     <div className={"navigator"}>
                         <div><Link href='/'><a>Home</a></Link></div>
                         <div><Link href='/test'><a>Test</a></Link></div>
+                        <div><Link href='/static/list'><a>SSG</a></Link></div>
                         <div><button onClick={ToggleTheme}>테마스위치</button></div>
                     </div>
                     {/* <input type='text' ref={theme} /> */}

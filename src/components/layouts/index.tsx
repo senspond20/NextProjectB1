@@ -1,2 +1,2 @@
-import Layout from './partials/Layout'
-export default Layout;
+import layout from './partials/layout'
+export default layout;

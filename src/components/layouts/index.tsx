@@ -1,2 +1,2 @@
-import Layout from '@components/layouts/partials/Layout'
-export { Layout }
+import Layout from './partials/Layout'
+export default Layout;

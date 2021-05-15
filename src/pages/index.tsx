@@ -10,8 +10,6 @@ const text = `
 import React, { ReactNode, useEffect, useState, useCallback, useRef  } from 'react'
 import styled, { ThemeProvider } from 'styled-components';
 import { useCookies, withCookies } from 'react-cookie';
-import SEO from './seo';
-import GlobalStyle from '@components/layouts/styles/global';
 import { darkTheme, lightTheme , ThemeType} from '@components/layouts/styles'
 import Link from 'next/link';
 
@@ -58,27 +56,8 @@ function Layouts ({title, children} : Props){
         <ThemeProvider theme={themeStyle}>
             <GlobalStyle/>
             <Container>
-                <SEO title = {title}/>
-                <header>
-                    <h1>header</h1>
-                    <div className={"navigator"}>
-                        <div><Link href='/'><a>Home</a></Link></div>
-                        <div><Link href='/test'><a>Test</a></Link></div>
-                        <div><Link href='/static/list'><a>blog</a></Link></div>
-                        <div><button onClick={ToggleTheme}>테마스위치</button></div>
-                    </div>
-                    {/* <input type='text' ref={theme} /> */}
-                    <div >현재 테마 : <span style={{color:'red'}}>{theme}</span></div>
-                   
-                </header>
-                <section>
-                    <main>
-                        {children}
-                    </main>
-                </section>
-                <footer>
-                    <h2>Footer</h2>
-                </footer>
+                {/* ... */}
+                <div><button onClick={ToggleTheme}>테마스위치</button></div>
             </Container>
         </ThemeProvider>
     )

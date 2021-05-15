@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/react-cookies": "^0.1.0",
+    "@uiw/react-codemirror": "^3.0.8",
     "@zeit/next-css": "^1.0.1",
     "codemirror": "^5.61.0",
     "gray-matter": "^4.0.3",
@@ -16,7 +17,6 @@
     "next-cookies": "^2.0.3",
     "raw-loader": "^4.0.2",
     "react": "16.13.1",
-    "react-codemirror2": "^7.2.1",
     "react-cookie": "^4.0.3",
     "react-dom": "16.13.1",
     "react-markdown": "^6.0.2",

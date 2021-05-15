@@ -18,6 +18,16 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  section{
+    width:100%;
+    main{
+      margin : 0 auto;
+      width:80%;
+    }
+  }
+ 
+
   .navigator{
         display:flex; 
         padding-bottom:10px;
@@ -32,6 +42,17 @@ const GlobalStyle = createGlobalStyle`
         }
         
     }
+
+  .CodeMirror {
+    max-width: 100% !important;
+    /* remove label height above mirror in my case */
+     /* height: 50px !important; */
+     /* height: calc(100% - 32px);  */
+     /* height : 100vh; */
+     span {
+       font-size: 1rem !important;
+     }
+  }
 `;
 
 export default GlobalStyle;

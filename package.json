@@ -10,6 +10,7 @@
   "dependencies": {
     "@types/react-cookies": "^0.1.0",
     "@uiw/react-codemirror": "^3.0.8",
+    "@uiw/react-md-editor": "^3.0.8",
     "@zeit/next-css": "^1.0.1",
     "codemirror": "^5.61.0",
     "gray-matter": "^4.0.3",
